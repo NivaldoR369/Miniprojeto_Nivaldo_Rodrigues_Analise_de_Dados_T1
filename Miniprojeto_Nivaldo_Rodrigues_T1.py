@@ -104,3 +104,50 @@ print(df["DATA"].dtype)
 datas_invalidas = df["DATA"].isna().sum()
 
 print(f"\nQuantidade de datas inválidas: {datas_invalidas}")
+
+# SPRINT 3 - LIMPEZA DE NULOS E DUPLICATAS
+print("\n" + "=" * 60)
+print("SPRINT 3 - LIMPEZA")
+print("=" * 60)
+
+print("\nValores nulos por coluna:")
+print(df.isnull().sum())
+
+# Tratamento de categorias ausentes/inconsistentes
+def tratar_categoria(valor):
+    if pd.isna(valor):
+        return "SEM CATEGORIA"
+    elif str(valor).strip().upper() in ["#N/D", "N/D", "ND", ""]:
+        return "SEM CATEGORIA"
+    else:
+        return str(valor).strip().upper()
+df["PR_CAT"] = df["PR_CAT"].apply(tratar_categoria)
+print("\nCategorias após tratamento:")
+print(df["PR_CAT"].value_counts())
+
+
+#Justificativa da remoção 
+#Não vamos remover registros apenas porque possuem o mesmo CO_ID, 
+# porque uma compra pode conter vários produtos.
+#Isso é uma decisão importante de qualidade de dados.
+
+#retirando as duplicadas
+duplicatas_antes = df.duplicated().sum()
+print(f"\nDuplicatas encontradas: {duplicatas_antes}")
+df = df.drop_duplicates()
+duplicatas_depois = df.duplicated().sum()
+print(f"Duplicatas após limpeza: {duplicatas_depois}")
+print(f"\nRegistros após limpeza: {len(df)}")
+
+# Regra de negócio do número da compra:
+# A coluna CO_ID representa o identificador da compra.
+# Precisamos ter cuidado para não considerar todas as linhas de um mesmo CO_ID como duplicadas,
+# porque uma compra pode possuir vários produtos.
+#Vamos verificar:
+quantidade_compras = df["CO_ID"].nunique()
+print(f"\nQuantidade de compras distintas: {quantidade_compras}")
+print("\nQuantidade de itens por compra:")
+print(df.groupby("CO_ID").size().describe())
+#quantidade_compras = df["CO_ID"].nunique()
+#Isso demonstra a regra de negócio.
+
