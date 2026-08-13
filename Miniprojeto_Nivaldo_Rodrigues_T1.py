@@ -148,6 +148,62 @@ quantidade_compras = df["CO_ID"].nunique()
 print(f"\nQuantidade de compras distintas: {quantidade_compras}")
 print("\nQuantidade de itens por compra:")
 print(df.groupby("CO_ID").size().describe())
-#quantidade_compras = df["CO_ID"].nunique()
 #Isso demonstra a regra de negócio.
 
+
+# SPRINT 4 - ESTATÍSTICAS E AGRUPAMENTOS
+#— Estatísticas do número de filhos
+print("\n" + "=" * 60)
+print("SPRINT 4 - ESTATÍSTICAS DESCRITIVAS")
+print("=" * 60)
+filhos = df["CL_FHL"]
+print("\nEstatísticas do número de filhos:")
+print(f"Contagem: {filhos.count()}")
+print(f"Média: {filhos.mean():.2f}")
+print(f"Mediana: {filhos.median():.2f}")
+print(f"Desvio padrão: {filhos.std():.2f}")
+print(f"Moda: {filhos.mode().tolist()}")
+print(f"Mínimo: {filhos.min()}")
+print(f"Máximo: {filhos.max()}")
+print(f"Q1: {filhos.quantile(0.25):.2f}")
+print(f"Q3: {filhos.quantile(0.75):.2f}")
+
+#Primeiro agrupamento — gênero
+print("\n" + "-" * 60)
+print("AGRUPAMENTO 1 - GÊNERO")
+print("-" * 60)
+agrupamento_genero = (
+    df.groupby("CL_GENERO").agg(
+        compras=("CO_ID", "nunique"),
+        itens=("CO_ID", "size"),
+        clientes=("CL_ID", "nunique")
+    )
+    .sort_values("compras", ascending=False) )
+print(agrupamento_genero)
+
+#Segundo agrupamento — categoria de produto
+print("\n" + "-" * 60)
+print("AGRUPAMENTO 2 - CATEGORIA")
+print("-" * 60)
+agrupamento_categoria = (
+    df.groupby("PR_CAT")
+    .agg(
+        compras=("CO_ID", "nunique"),
+        itens=("CO_ID", "size"),
+        clientes=("CL_ID", "nunique")).sort_values("itens", ascending=False))
+print(agrupamento_categoria)
+
+#Verificar categorias depois da limpeza
+print("\nDistribuição das categorias:")
+print(df["PR_CAT"].value_counts())
+#Análise temporal
+print("\n" + "-" * 60)
+print("ANÁLISE TEMPORAL")
+print("-" * 60)
+df["ANO_MES"] = df["DATA"].dt.to_period("M")
+vendas_mensais = (
+    df.groupby("ANO_MES")
+    .size()
+    .sort_index()
+)
+print(vendas_mensais)
