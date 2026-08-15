@@ -310,24 +310,6 @@ plt.savefig(
 )
 plt.show()
 
-# GRÁFICO 7 - TOP 10 CLIENTES
-top_clientes = (
-    df["CL_ID"]
-    .value_counts()
-    .head(10)
-    .sort_values(ascending=True)
-)
-plt.figure(figsize=(10, 6))
-top_clientes.plot(kind="barh")
-plt.title("Top 10 Clientes por Número de Registros")
-plt.xlabel("Quantidade de Registros")
-plt.ylabel("Cliente")
-plt.tight_layout()
-plt.savefig(
-    "graficos/07_top_10_clientes.png",
-    dpi=300
-)
-plt.show()
 
 # GRÁFICO 7 - TOP 10 CLIENTES
 top_clientes = (
@@ -354,6 +336,3 @@ print("ANÁLISE CONCLUÍDA!")
 print("============================================")
 print("Os gráficos foram salvos na pasta 'graficos'.")
 print("Foram gerados 7 gráficos.")
-
-
-
