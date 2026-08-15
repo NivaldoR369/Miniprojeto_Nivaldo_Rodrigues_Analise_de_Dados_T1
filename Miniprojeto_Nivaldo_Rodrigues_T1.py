@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
 # SPRINT 1 - IMPORTAÇÃO E CONHECIMENTO DA BASE
 print("\n" + "=" * 60)
 print("SPRINT 1 - IMPORTAÇÃO DOS DADOS")
@@ -13,7 +12,6 @@ print("=" * 60)
 
 # Carregamento da base
 df = pd.read_csv("Base Varejo.csv", sep=";", encoding="utf-8")
-
 print("\nBase carregada com sucesso!")
 
 # Dimensões da base
@@ -43,14 +41,12 @@ print("\nQuantidade de registros duplicados:")
 print(df.duplicated().sum())
 
 # SPRINT 2 - TRANSFORMAÇÃO DOS DADOS
-
 print("\n" + "=" * 60)
 print("SPRINT 2 - TRANSFORMAÇÃO DOS DADOS")
 print("=" * 60)
 
 # Remover colunas totalmente vazias
 df = df.dropna(axis=1, how="all")
-
 print("\nColunas após remover colunas totalmente vazias:")
 print(df.columns.tolist())
 
@@ -70,7 +66,6 @@ for coluna in colunas_texto:
         .str.strip()
         .str.upper()
         .str.replace(r"\s+", " ", regex=True) )
-
 print("\nStrings normalizadas com sucesso.")
 
 # Colunas numéricas
@@ -81,13 +76,11 @@ colunas_numericas = [
     "CL_FHL",
     "PR_ID"
 ]
-
 for coluna in colunas_numericas:
     df[coluna] = pd.to_numeric(
         df[coluna],
         errors="coerce"
     )
-
 print("\nTipos numéricos ajustados:")
 print(df[colunas_numericas].dtypes)
 
@@ -97,19 +90,15 @@ df["DATA"] = pd.to_datetime(
     format="%d/%m/%Y",
     errors="coerce"
 )
-
 print("\nTipo da coluna DATA após conversão:")
 print(df["DATA"].dtype)
-
 datas_invalidas = df["DATA"].isna().sum()
-
 print(f"\nQuantidade de datas inválidas: {datas_invalidas}")
 
 # SPRINT 3 - LIMPEZA DE NULOS E DUPLICATAS
 print("\n" + "=" * 60)
 print("SPRINT 3 - LIMPEZA")
 print("=" * 60)
-
 print("\nValores nulos por coluna:")
 print(df.isnull().sum())
 
@@ -149,7 +138,6 @@ print(f"\nQuantidade de compras distintas: {quantidade_compras}")
 print("\nQuantidade de itens por compra:")
 print(df.groupby("CO_ID").size().describe())
 #Isso demonstra a regra de negócio.
-
 
 # SPRINT 4 - ESTATÍSTICAS E AGRUPAMENTOS
 #— Estatísticas do número de filhos
@@ -218,13 +206,11 @@ registros_data = (
       .size()
       .reset_index(name="Quantidade")
 )
-
 plt.figure(figsize=(12, 6))
 plt.plot(
     registros_data["DATA"],
     registros_data["Quantidade"]
 )
-
 plt.title("Quantidade de Registros ao Longo do Tempo")
 plt.xlabel("Data")
 plt.ylabel("Quantidade de Registros")
@@ -237,14 +223,12 @@ plt.savefig(
 )
 plt.show()
 
-
 # GRAFICO 2 - REGISTROS POR CATEGORIA
 categoria = (
     df["PR_CAT"]
     .value_counts()
     .sort_values(ascending=True)
 )
-
 plt.figure(figsize=(10, 6))
 categoria.plot(kind="barh")
 plt.title("Quantidade de Registros por Categoria de Produto")
@@ -255,7 +239,6 @@ plt.savefig(
     "graficos/02_registros_por_categoria.png",
     dpi=300
 )
-
 plt.show()
 
 # GRÁFICO 3 - TOP 10 PRODUTOS
@@ -286,7 +269,6 @@ plt.pie(
     autopct="%1.1f%%",
     startangle=90
 )
-
 plt.title("Distribuição dos Registros por Gênero")
 plt.tight_layout()
 plt.savefig(
@@ -297,24 +279,17 @@ plt.show()
 
 # GRÁFICO 5 - DISTRIBUIÇÃO POR SEGMENTO
 segmento = df["CL_SEG"].value_counts()
-
 plt.figure(figsize=(8, 5))
-
 segmento.plot(kind="bar")
-
 plt.title("Quantidade de Registros por Segmento de Cliente")
 plt.xlabel("Segmento")
 plt.ylabel("Quantidade de Registros")
-
 plt.xticks(rotation=0)
-
 plt.tight_layout()
-
 plt.savefig(
     "graficos/05_registros_por_segmento.png",
     dpi=300
 )
-
 plt.show()
 
 # GRÁFICO 6 - REGISTROS POR EMPRESA/LOJA
@@ -325,7 +300,6 @@ empresa = (
 )
 plt.figure(figsize=(10, 6))
 empresa.plot(kind="bar")
-
 plt.title("Quantidade de Registros por Empresa/Loja")
 plt.xlabel("Empresa/Loja (CO_ID)")
 plt.ylabel("Quantidade de Registros")
@@ -355,6 +329,24 @@ plt.savefig(
 )
 plt.show()
 
+# GRÁFICO 7 - TOP 10 CLIENTES
+top_clientes = (
+    df["CL_ID"]
+    .value_counts()
+    .head(10)
+    .sort_values(ascending=True)
+)
+plt.figure(figsize=(10, 6))
+top_clientes.plot(kind="barh")
+plt.title("Top 10 Clientes por Número de Registros")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Cliente")
+plt.tight_layout()
+plt.savefig(
+    "graficos/07_top_10_clientes.png",
+    dpi=300
+)
+plt.show()
 
 # FINALIZAÇÃO
 print("\n============================================")
@@ -362,31 +354,6 @@ print("ANÁLISE CONCLUÍDA!")
 print("============================================")
 print("Os gráficos foram salvos na pasta 'graficos'.")
 print("Foram gerados 7 gráficos.")
-# ============================================
-# GRÁFICO 7 - TOP 10 CLIENTES
-# ============================================
 
-top_clientes = (
-    df["CL_ID"]
-    .value_counts()
-    .head(10)
-    .sort_values(ascending=True)
-)
 
-plt.figure(figsize=(10, 6))
-
-top_clientes.plot(kind="barh")
-
-plt.title("Top 10 Clientes por Número de Registros")
-plt.xlabel("Quantidade de Registros")
-plt.ylabel("Cliente")
-
-plt.tight_layout()
-
-plt.savefig(
-    "graficos/07_top_10_clientes.png",
-    dpi=300
-)
-
-plt.show()
 
