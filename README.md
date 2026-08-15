@@ -5,116 +5,141 @@
 **Disciplina:** Análise de Dados
 **Projeto:** Análise Exploratória de Dados aplicada ao Varejo
 **Linguagem:** Python
-**Biblioteca principal:** Pandas, secundaria: Numpy, Matplotlib
+**Bibliotecas principais:** Pandas, NumPy e Matplotlib
 
 ---
 
-## 1. Apresentação do Projeto
+# 1. Apresentação do Projeto
 
 Este projeto apresenta uma **Análise Exploratória de Dados (AED)** aplicada a uma base de dados de varejo.
 
 O objetivo principal é demonstrar como dados brutos podem ser carregados, analisados, tratados, transformados e organizados para posteriormente serem utilizados em análises mais avançadas, relatórios ou ferramentas de Business Intelligence (BI).
 
-A análise foi desenvolvida utilizando a linguagem **Python** e a biblioteca **Pandas**, seguindo uma sequência de etapas de tratamento e exploração dos dados.
+A análise foi desenvolvida utilizando a linguagem **Python** e as bibliotecas **Pandas, NumPy e Matplotlib**, seguindo uma sequência de etapas de tratamento, exploração e visualização dos dados.
 
 Durante o desenvolvimento foram realizadas atividades de:
 
-- importação da base de dados;
-- identificação da estrutura da tabela;
-- verificação dos tipos de dados;
-- identificação de valores ausentes;
-- identificação de registros duplicados;
-- tratamento de categorias inconsistentes;
-- transformação de strings;
-- conversão de dados numéricos;
-- conversão de datas para o tipo `datetime`;
-- remoção de duplicatas;
-- cálculo de estatísticas descritivas;
-- agrupamento dos dados;
-- análise temporal;
-- interpretação dos principais resultados.
+* importação da base de dados;
+* identificação da estrutura da tabela;
+* verificação dos tipos de dados;
+* identificação de valores ausentes;
+* identificação de registros duplicados;
+* tratamento de categorias inconsistentes;
+* transformação de strings;
+* conversão de dados numéricos;
+* conversão de datas para o tipo `datetime`;
+* remoção de duplicatas;
+* cálculo de estatísticas descritivas;
+* agrupamento dos dados;
+* análise temporal;
+* criação de gráficos;
+* interpretação dos principais resultados.
 
 ---
 
 # 2. Contextualização
 
 A análise exploratória de dados é uma etapa importante no processo de preparação de informações para tomada de decisão.
+
 Em uma situação real de trabalho, os dados normalmente não chegam completamente preparados. Podem existir registros duplicados, valores ausentes, erros de preenchimento, categorias inconsistentes e tipos de dados inadequados.
+
 Por esse motivo, antes de produzir gráficos, indicadores ou dashboards, é necessário verificar a qualidade da base.
 
 Neste projeto foi utilizada uma base de dados de varejo contendo informações relacionadas a:
 
-- compras;
-- clientes;
-- gênero;
-- segmento;
-- escolaridade;
-- número de filhos;
-- produtos;
-- categorias;
-- datas.
+* compras;
+* clientes;
+* gênero;
+* segmento;
+* escolaridade;
+* número de filhos;
+* produtos;
+* categorias;
+* datas.
 
 A análise procura transformar esses dados brutos em informações que permitam compreender melhor o comportamento dos registros de compra.
+
+---
+
 # 3. Objetivos
+
 ## 3.1 Objetivo Geral
 
-Realizar uma Análise Exploratória de Dados utilizando Python e Pandas, identificando problemas de qualidade, realizando a limpeza e transformação dos dados e obtendo informações por meio de estatísticas descritivas e agrupamentos.
+Realizar uma Análise Exploratória de Dados utilizando Python e Pandas, identificando problemas de qualidade, realizando a limpeza e transformação dos dados e obtendo informações por meio de estatísticas descritivas, agrupamentos e visualizações gráficas.
+
 ## 3.2 Objetivos Específicos
 
-- Carregar a base de dados utilizando Pandas;
-- verificar a quantidade de registros e colunas;
-- identificar os tipos de dados;
-- verificar valores nulos;
-- identificar registros duplicados;
-- identificar inconsistências nas categorias;
-- transformar dados de texto;
-- converter colunas numéricas;
-- converter a coluna de data para `datetime`;
-- remover registros duplicados;
-- tratar categorias não identificadas;
-- calcular estatísticas sobre o número de filhos dos clientes;
-- realizar agrupamentos por gênero e categoria;
-- realizar uma análise temporal;
-- apresentar conclusões sobre os principais resultados.
+* Carregar a base de dados utilizando Pandas;
+* verificar a quantidade de registros e colunas;
+* identificar os tipos de dados;
+* verificar valores nulos;
+* identificar registros duplicados;
+* identificar inconsistências nas categorias;
+* transformar dados de texto;
+* converter colunas numéricas;
+* converter a coluna de data para `datetime`;
+* remover registros duplicados;
+* tratar categorias não identificadas;
+* calcular estatísticas sobre o número de filhos dos clientes;
+* realizar agrupamentos por gênero e categoria;
+* realizar uma análise temporal;
+* criar gráficos para representar os principais resultados;
+* interpretar os resultados obtidos;
+* apresentar conclusões sobre os principais resultados.
 
--4. Fonte dos Dados
+---
+
+# 4. Fonte dos Dados
+
 A base utilizada neste projeto foi a base de varejo disponibilizada para o Mini-Projeto Avaliativo.
+
 Arquivo utilizado:
+
 ```text
 Base Varejo.csv
 ```
+
 A base foi carregada localmente no projeto e utilizada como fonte para todas as etapas de análise.
+
 ---
 
 # 5. Tecnologias Utilizadas
 
 Para o desenvolvimento do projeto foram utilizadas as seguintes tecnologias:
 
-### Python
+## Python
 
 Linguagem de programação utilizada para desenvolver o script de análise.
 
-### Pandas
+## Pandas
 
 Biblioteca utilizada para:
 
-- leitura do arquivo CSV;
-- manipulação dos dados;
-- tratamento de valores ausentes;
-- remoção de duplicatas;
-- conversão de tipos;
-- agrupamentos;
-- cálculos estatísticos.
+* leitura do arquivo CSV;
+* manipulação dos dados;
+* tratamento de valores ausentes;
+* remoção de duplicatas;
+* conversão de tipos;
+* agrupamentos;
+* cálculos estatísticos.
 
-### VS Code
+## NumPy
+
+Biblioteca utilizada como apoio para operações numéricas e manipulação de dados.
+
+## Matplotlib
+
+Biblioteca utilizada para a criação das visualizações gráficas utilizadas na análise exploratória.
+
+## VS Code
 
 Ambiente utilizado para desenvolvimento e execução do programa.
 
-### Git
+## Git
 
 Sistema utilizado para controle de versões do projeto.
 
-### GitHub
+## GitHub
 
 Plataforma utilizada para armazenamento e publicação do repositório.
 
@@ -160,11 +185,11 @@ O método `read_csv()` realiza a leitura do arquivo CSV e transforma os dados em
 
 A transformação ocorreu durante as etapas de:
 
-- limpeza das strings;
-- conversão das colunas numéricas;
-- conversão da coluna de data;
-- tratamento das categorias;
-- remoção das duplicatas.
+* limpeza das strings;
+* conversão das colunas numéricas;
+* conversão da coluna de data;
+* tratamento das categorias;
+* remoção das duplicatas.
 
 Por exemplo, a coluna `DATA`, inicialmente armazenada como texto, foi transformada para o tipo `datetime`.
 
@@ -194,22 +219,22 @@ A qualidade dos dados é fundamental para que uma análise produza resultados co
 
 Durante o projeto foram verificados diferentes aspectos da qualidade da base:
 
-- completude;
-- consistência;
-- duplicidade;
-- formato;
-- tipos de dados;
-- validade das datas;
-- padronização das categorias.
+* completude;
+* consistência;
+* duplicidade;
+* formato;
+* tipos de dados;
+* validade das datas;
+* padronização das categorias.
 
 Foram identificados problemas que poderiam prejudicar uma análise posterior.
 
 Entre eles destacam-se:
 
-- colunas completamente vazias;
-- registros duplicados;
-- categorias representadas por `#N/D`;
-- coluna de data armazenada inicialmente como texto.
+* colunas completamente vazias;
+* registros duplicados;
+* categorias representadas por `#N/D`;
+* coluna de data armazenada inicialmente como texto.
 
 Esses problemas foram tratados durante o processo de limpeza.
 
@@ -253,8 +278,8 @@ O atributo `shape` informa a quantidade de linhas e colunas do DataFrame.
 
 A base inicialmente apresentou:
 
-- **830.000 registros**
-- **14 colunas**
+* **830.000 registros**
+* **14 colunas**
 
 ---
 
@@ -400,11 +425,11 @@ Essa opção transforma valores que não podem ser convertidos em números em va
 
 As principais colunas numéricas analisadas foram:
 
-- `CO_ID`;
-- `CL_ID`;
-- `CL_EC`;
-- `CL_FHL`;
-- `PR_ID`.
+* `CO_ID`;
+* `CL_ID`;
+* `CL_EC`;
+* `CL_FHL`;
+* `PR_ID`.
 
 ---
 
@@ -436,9 +461,9 @@ O formato:
 
 representa:
 
-- `%d` → dia;
-- `%m` → mês;
-- `%Y` → ano.
+* `%d` → dia;
+* `%m` → mês;
+* `%Y` → ano.
 
 Depois da conversão, a coluna passou a poder ser utilizada em análises temporais.
 
@@ -488,9 +513,9 @@ def tratar_categoria(valor):
 
 Essa função utiliza:
 
-- `if`;
-- `elif`;
-- `else`.
+* `if`;
+* `elif`;
+* `else`.
 
 Os registros sem categoria foram padronizados como:
 
@@ -568,15 +593,15 @@ Essa coluna representa o número de filhos dos clientes.
 
 Foram calculadas as seguintes medidas:
 
-- contagem;
-- média;
-- mediana;
-- desvio padrão;
-- moda;
-- mínimo;
-- máximo;
-- primeiro quartil (Q1);
-- terceiro quartil (Q3).
+* contagem;
+* média;
+* mediana;
+* desvio padrão;
+* moda;
+* mínimo;
+* máximo;
+* primeiro quartil (Q1);
+* terceiro quartil (Q3).
 
 ---
 
@@ -660,8 +685,8 @@ filhos.max()
 
 Os valores encontrados foram:
 
-- mínimo: **0**
-- máximo: **4**
+* mínimo: **0**
+* máximo: **4**
 
 ---
 
@@ -683,8 +708,8 @@ para Q3.
 
 Os resultados aproximados foram:
 
-- Q1 = **0**
-- Q3 = **2**
+* Q1 = **0**
+* Q3 = **2**
 
 Os quartis permitem compreender melhor a distribuição dos dados.
 
@@ -694,7 +719,7 @@ Os quartis permitem compreender melhor a distribuição dos dados.
 
 A análise exploratória também buscou identificar padrões de agrupamento.
 
-Foram realizados pelo menos dois agrupamentos utilizando o método:
+Foram realizados agrupamentos utilizando o método:
 
 ```python
 groupby()
@@ -718,9 +743,9 @@ df.groupby("CL_GENERO")
 
 Foram analisados:
 
-- quantidade de compras;
-- quantidade de itens;
-- quantidade de clientes.
+* quantidade de compras;
+* quantidade de itens;
+* quantidade de clientes.
 
 O resultado indicou que o gênero:
 
@@ -732,8 +757,8 @@ apresentou maior quantidade de compras distintas do que o gênero:
 
 Os valores encontrados foram aproximadamente:
 
-- F: **9.615 compras distintas**
-- M: **8.856 compras distintas**
+* F: **9.615 compras distintas**
+* M: **8.856 compras distintas**
 
 Esse resultado representa uma diferença na quantidade de compras observadas entre os grupos.
 
@@ -755,9 +780,9 @@ df.groupby("PR_CAT")
 
 Foram analisadas:
 
-- compras;
-- itens;
-- clientes.
+* compras;
+* itens;
+* clientes.
 
 A categoria que apresentou maior quantidade de itens foi:
 
@@ -777,7 +802,7 @@ A distribuição encontrada após o tratamento apresentou aproximadamente:
 | ACESSORIOS    |              12.871 |
 | SEM CATEGORIA |               3.228 |
 
-Esses resultados demonstram a predominância da categoria ALIMENTOS na base analisada.
+Esses resultados demonstram a predominância da categoria **ALIMENTOS** na base analisada.
 
 ---
 
@@ -805,7 +830,324 @@ Essa decisão foi tomada para não criar informações que não estão presentes
 
 ---
 
-# 21. Principais Insights
+# 21. Visualização dos Dados
+
+A visualização gráfica é uma etapa importante da Análise Exploratória de Dados, pois permite representar os resultados de forma visual e facilitar a identificação de padrões, diferenças e concentrações.
+
+Para a criação dos gráficos foi utilizada a biblioteca **Matplotlib**.
+
+Os gráficos foram desenvolvidos a partir dos dados tratados e organizados durante as etapas anteriores do projeto.
+
+Os arquivos gráficos foram organizados na pasta:
+
+```text
+graficos/
+```
+
+---
+
+## 21.1 Registros ao Longo do Tempo
+
+O primeiro gráfico apresenta a quantidade de registros para cada data disponível na base.
+
+```python
+registros_data = (
+    df.groupby("DATA")
+      .size()
+      .reset_index(name="Quantidade")
+)
+
+plt.figure(figsize=(12, 6))
+
+plt.plot(
+    registros_data["DATA"],
+    registros_data["Quantidade"]
+)
+
+plt.title("Quantidade de Registros ao Longo do Tempo")
+plt.xlabel("Data")
+plt.ylabel("Quantidade de Registros")
+plt.xticks(rotation=45)
+plt.grid(True)
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/01_registros_ao_longo_do_tempo.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+O gráfico permite observar como a quantidade de registros se distribui ao longo do período analisado.
+
+**Arquivo gerado:**
+
+```text
+graficos/01_registros_ao_longo_do_tempo.png
+```
+
+---
+
+## 21.2 Registros por Categoria de Produto
+
+O segundo gráfico apresenta a quantidade de registros por categoria.
+
+```python
+categoria = (
+    df["PR_CAT"]
+    .value_counts()
+    .sort_values(ascending=True)
+)
+
+plt.figure(figsize=(10, 6))
+
+categoria.plot(kind="barh")
+
+plt.title("Quantidade de Registros por Categoria de Produto")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Categoria")
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/02_registros_por_categoria.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+Esse gráfico permite comparar visualmente as categorias presentes na base.
+
+A categoria **ALIMENTOS** apresenta a maior quantidade de registros, conforme identificado anteriormente na análise de agrupamento.
+
+**Arquivo gerado:**
+
+```text
+graficos/02_registros_por_categoria.png
+```
+
+---
+
+## 21.3 Top 10 Produtos
+
+O terceiro gráfico apresenta os dez produtos com maior número de registros.
+
+```python
+top_produtos = (
+    df["PR_NOME"]
+    .value_counts()
+    .head(10)
+    .sort_values(ascending=True)
+)
+
+plt.figure(figsize=(10, 6))
+
+top_produtos.plot(kind="barh")
+
+plt.title("Top 10 Produtos com Maior Número de Registros")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Produto")
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/03_top_10_produtos.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+A visualização permite identificar os produtos mais recorrentes na base.
+
+É importante destacar que o gráfico representa **frequência de registros**, e não faturamento ou valor de venda.
+
+**Arquivo gerado:**
+
+```text
+graficos/03_top_10_produtos.png
+```
+
+---
+
+## 21.4 Distribuição por Gênero
+
+O quarto gráfico apresenta a distribuição dos registros por gênero.
+
+```python
+genero = df["CL_GENERO"].value_counts()
+
+plt.figure(figsize=(7, 7))
+
+plt.pie(
+    genero.values,
+    labels=genero.index,
+    autopct="%1.1f%%",
+    startangle=90
+)
+
+plt.title("Distribuição dos Registros por Gênero")
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/04_distribuicao_genero.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+O gráfico permite visualizar proporcionalmente a participação dos gêneros presentes na base.
+
+**Arquivo gerado:**
+
+```text
+graficos/04_distribuicao_genero.png
+```
+
+---
+
+## 21.5 Registros por Segmento
+
+O quinto gráfico apresenta a quantidade de registros por segmento de cliente.
+
+```python
+segmento = df["CL_SEG"].value_counts()
+
+plt.figure(figsize=(8, 5))
+
+segmento.plot(kind="bar")
+
+plt.title("Quantidade de Registros por Segmento de Cliente")
+plt.xlabel("Segmento")
+plt.ylabel("Quantidade de Registros")
+
+plt.xticks(rotation=0)
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/05_registros_por_segmento.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+Essa visualização permite comparar os segmentos existentes na base e identificar aqueles com maior quantidade de registros.
+
+**Arquivo gerado:**
+
+```text
+graficos/05_registros_por_segmento.png
+```
+
+---
+
+## 21.6 Registros por Empresa/Loja
+
+O sexto gráfico apresenta a quantidade de registros associada a cada empresa ou loja identificada pelo campo `CO_ID`.
+
+```python
+empresa = (
+    df["CO_ID"]
+    .value_counts()
+    .sort_values(ascending=False)
+)
+
+plt.figure(figsize=(10, 6))
+
+empresa.plot(kind="bar")
+
+plt.title("Quantidade de Registros por Empresa/Loja")
+plt.xlabel("Empresa/Loja (CO_ID)")
+plt.ylabel("Quantidade de Registros")
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/06_registros_por_empresa.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+A comparação permite observar a distribuição dos registros entre os identificadores presentes na base.
+
+**Arquivo gerado:**
+
+```text
+graficos/06_registros_por_empresa.png
+```
+
+---
+
+## 21.7 Top 10 Clientes
+
+O sétimo gráfico apresenta os dez clientes com maior número de registros.
+
+```python
+top_clientes = (
+    df["CL_ID"]
+    .value_counts()
+    .head(10)
+    .sort_values(ascending=True)
+)
+
+plt.figure(figsize=(10, 6))
+
+top_clientes.plot(kind="barh")
+
+plt.title("Top 10 Clientes por Número de Registros")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Cliente")
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/07_top_10_clientes.png",
+    dpi=300
+)
+
+plt.show()
+```
+
+Essa análise permite identificar os clientes que aparecem com maior frequência na base.
+
+**Arquivo gerado:**
+
+```text
+graficos/07_top_10_clientes.png
+```
+
+---
+
+# 22. Organização dos Gráficos
+
+Após a execução do programa, os gráficos são armazenados em uma pasta específica:
+
+```text
+graficos/
+│
+├── 01_registros_ao_longo_do_tempo.png
+├── 02_registros_por_categoria.png
+├── 03_top_10_produtos.png
+├── 04_distribuicao_genero.png
+├── 05_registros_por_segmento.png
+├── 06_registros_por_empresa.png
+└── 07_top_10_clientes.png
+```
+
+Essa organização facilita a apresentação dos resultados e permite que os gráficos sejam utilizados posteriormente no README, em apresentações ou relatórios.
+
+---
+
+# 23. Principais Insights
 
 A partir da análise realizada, foram identificados os seguintes insights:
 
@@ -823,19 +1165,30 @@ A categoria **ALIMENTOS** apresentou a maior quantidade de registros, com aproxi
 
 ### 4. Maior quantidade de compras no gênero F
 
-O agrupamento por gênero mostrou aproximadamente **9.615 compras distintas para F** e **8.856 para M**, indicando maior quantidade de compras distintas no grupo F.
+O agrupamento por gênero mostrou aproximadamente:
+
+* **9.615 compras distintas para F**
+* **8.856 compras distintas para M**
+
+indicando maior quantidade de compras distintas no grupo F.
 
 ### 5. Distribuição do número de filhos
 
-A variável número de filhos apresentou média aproximada de **1,15**, mediana igual a **0** e moda igual a **0**. Isso demonstra que os registros com zero filhos possuem grande participação na base.
+A variável número de filhos apresentou média aproximada de **1,15**, mediana igual a **0** e moda igual a **0**.
+
+Isso demonstra que os registros com zero filhos possuem grande participação na base.
 
 ### 6. Necessidade de tratamento da qualidade
 
 A existência de duplicatas, categorias `#N/D` e colunas completamente vazias demonstra a importância da etapa de limpeza antes da utilização dos dados em relatórios ou dashboards.
 
+### 7. Importância da visualização
+
+A criação dos gráficos permitiu transformar os resultados numéricos em representações visuais, facilitando a comparação entre categorias, produtos, segmentos, clientes e períodos.
+
 ---
 
-# 22. Problemas Remanescentes e Limitações
+# 24. Problemas Remanescentes e Limitações
 
 Apesar das etapas de limpeza, algumas limitações permanecem.
 
@@ -843,13 +1196,13 @@ A principal limitação é que a base utilizada não apresenta uma coluna espec�
 
 Por esse motivo, não foi possível calcular:
 
-- faturamento;
-- ticket médio;
-- receita por categoria;
-- receita por gênero;
-- evolução financeira das vendas.
+* faturamento;
+* ticket médio;
+* receita por categoria;
+* receita por gênero;
+* evolução financeira das vendas.
 
-Assim, os agrupamentos foram realizados utilizando quantidade de compras, itens e clientes.
+Assim, os agrupamentos e gráficos foram realizados utilizando quantidade de compras, itens, registros e clientes.
 
 Outra limitação é que o tratamento de categorias não identificadas não recupera a categoria original. Os registros foram apenas classificados como:
 
@@ -861,21 +1214,23 @@ Isso preserva os registros sem atribuir uma informação que não estava present
 
 ---
 
-# 23. Reprodutibilidade
+# 25. Reprodutibilidade
 
 O projeto foi desenvolvido para que possa ser executado novamente em outro computador.
 
 Para executar o projeto é necessário possuir:
 
-- Python instalado;
-- biblioteca Pandas instalada;
-- arquivo `Base Varejo.csv`;
-- arquivo `Miniprojeto_Nivaldo_Rodrigues_T1.py`.
+* Python instalado;
+* biblioteca Pandas instalada;
+* biblioteca NumPy instalada;
+* biblioteca Matplotlib instalada;
+* arquivo `Base Varejo.csv`;
+* arquivo Python do projeto.
 
-Instalação do Pandas:
+Instalação das bibliotecas:
 
 ```bash
-pip install pandas
+pip install pandas numpy matplotlib
 ```
 
 Execução:
@@ -886,9 +1241,17 @@ python Miniprojeto_Nivaldo_Rodrigues_T1.py
 
 O arquivo CSV deve permanecer na mesma pasta do arquivo Python.
 
+Caso a pasta `graficos` ainda não exista, ela pode ser criada automaticamente pelo código:
+
+```python
+import os
+
+os.makedirs("graficos", exist_ok=True)
+```
+
 ---
 
-# 24. Estrutura do Repositório
+# 26. Estrutura do Repositório
 
 A estrutura do projeto é:
 
@@ -901,12 +1264,24 @@ Miniprojeto_Nivaldo_Rodrigues_Analise_de_Dados_T1/
 │
 ├── README.md
 │
-└── README_Nivaldo_Rodrigues_Analise_de_Dados_T1.md
+├── README_Nivaldo_Rodrigues_Analise_de_Dados_T1.md
+│
+└── graficos/
+    │
+    ├── 01_registros_ao_longo_do_tempo.png
+    ├── 02_registros_por_categoria.png
+    ├── 03_top_10_produtos.png
+    ├── 04_distribuicao_genero.png
+    ├── 05_registros_por_segmento.png
+    ├── 06_registros_por_empresa.png
+    └── 07_top_10_clientes.png
 ```
+
+A pasta `graficos` contém as imagens geradas pelo programa durante a etapa de visualização dos dados.
 
 ---
 
-# 25. Versionamento com Git
+# 27. Versionamento com Git
 
 O desenvolvimento do projeto foi organizado em etapas utilizando Git.
 
@@ -920,12 +1295,12 @@ Sprint 1: importacao e analise inicial dos dados
 
 Nesta etapa foram realizados:
 
-- criação do projeto;
-- importação do CSV;
-- identificação das colunas;
-- identificação dos tipos;
-- verificação de nulos;
-- identificação de duplicatas.
+* criação do projeto;
+* importação do CSV;
+* identificação das colunas;
+* identificação dos tipos;
+* verificação de nulos;
+* identificação de duplicatas.
 
 ## Sprint 2
 
@@ -935,11 +1310,11 @@ Sprint 2: limpeza de strings, tipos numericos e datas
 
 Nesta etapa foram realizados:
 
-- remoção das colunas totalmente vazias;
-- padronização de strings;
-- utilização de expressão regular;
-- conversão das colunas numéricas;
-- conversão da coluna DATA para datetime.
+* remoção das colunas totalmente vazias;
+* padronização de strings;
+* utilização de expressão regular;
+* conversão das colunas numéricas;
+* conversão da coluna DATA para datetime.
 
 ## Sprint 3
 
@@ -949,12 +1324,12 @@ Sprint 3: tratamento de categorias, nulos e duplicatas
 
 Nesta etapa foram realizados:
 
-- tratamento da categoria `#N/D`;
-- criação da categoria `SEM CATEGORIA`;
-- utilização de `if/elif/else`;
-- identificação das duplicatas;
-- remoção das duplicatas;
-- análise da regra de negócio do `CO_ID`.
+* tratamento da categoria `#N/D`;
+* criação da categoria `SEM CATEGORIA`;
+* utilização de `if/elif/else`;
+* identificação das duplicatas;
+* remoção das duplicatas;
+* análise da regra de negócio do `CO_ID`.
 
 ## Sprint 4
 
@@ -964,12 +1339,12 @@ Sprint 4: estatisticas agrupamentos e conclusoes
 
 Nesta etapa foram realizados:
 
-- estatísticas descritivas;
-- análise do número de filhos;
-- agrupamento por gênero;
-- agrupamento por categoria;
-- análise temporal;
-- elaboração das conclusões.
+* estatísticas descritivas;
+* análise do número de filhos;
+* agrupamento por gênero;
+* agrupamento por categoria;
+* análise temporal;
+* elaboração das conclusões.
 
 ## Sprint 5
 
@@ -979,16 +1354,35 @@ Sprint 5: documentacao final do projeto
 
 Nesta etapa foram realizados:
 
-- criação do README;
-- documentação do projeto;
-- explicação do processo ETL;
-- explicação da qualidade dos dados;
-- apresentação dos insights;
-- revisão final da estrutura do projeto.
+* criação do README;
+* documentação do projeto;
+* explicação do processo ETL;
+* explicação da qualidade dos dados;
+* apresentação dos insights;
+* revisão final da estrutura do projeto.
+
+## Sprint 6
+
+```text
+Sprint 6: visualizacao grafica dos dados
+```
+
+Nesta etapa foram realizados:
+
+* instalação e utilização da biblioteca Matplotlib;
+* criação dos gráficos;
+* análise temporal por meio de visualização;
+* criação do gráfico por categoria;
+* identificação dos 10 produtos mais frequentes;
+* visualização da distribuição por gênero;
+* análise por segmento;
+* análise por empresa/loja;
+* identificação dos 10 clientes com maior frequência;
+* organização dos gráficos na pasta `graficos`.
 
 ---
 
-# 26. Considerações Finais
+# 28. Considerações Finais
 
 A realização deste Mini-Projeto permitiu compreender que a análise de dados não começa diretamente pela construção de gráficos ou dashboards.
 
@@ -996,22 +1390,26 @@ Antes da análise propriamente dita, é necessário compreender a origem dos dad
 
 A utilização do Pandas permitiu automatizar diversas tarefas, como leitura do CSV, identificação de valores ausentes, remoção de duplicatas, transformação de tipos, conversão de datas, agrupamentos e cálculo de estatísticas.
 
+A utilização do Matplotlib possibilitou transformar os resultados da análise em gráficos, facilitando a interpretação visual dos dados.
+
 O projeto também demonstrou a importância do processo ETL, principalmente da etapa de transformação, pois dados inconsistentes ou duplicados podem produzir resultados incorretos.
 
-A análise mostrou que a base apresenta grande volume de registros e padrões interessantes relacionados às categorias de produtos, gênero dos clientes e número de filhos.
+A análise mostrou que a base apresenta grande volume de registros e padrões interessantes relacionados às categorias de produtos, gênero dos clientes, segmentos, produtos e número de filhos.
 
 Além disso, o desenvolvimento utilizando Git e GitHub permitiu organizar o projeto por etapas, mantendo um histórico das alterações realizadas.
 
-Dessa forma, o projeto representa uma aplicação prática dos conceitos de **Análise Exploratória de Dados, qualidade de dados, ETL, Python, Pandas e controle de versão**, preparando a base para análises posteriores e possíveis aplicações em ferramentas de Business Intelligence.
+É importante destacar que, como a base não possui uma coluna de valor monetário, os resultados apresentados representam principalmente **quantidade de registros, compras, itens e frequência de ocorrência**, não sendo possível afirmar diretamente quais produtos ou categorias apresentaram maior faturamento.
+
+Dessa forma, o projeto representa uma aplicação prática dos conceitos de **Análise Exploratória de Dados, qualidade de dados, ETL, Python, Pandas, NumPy, Matplotlib e controle de versão**, preparando a base para análises posteriores e possíveis aplicações em ferramentas de Business Intelligence.
 
 ---
 
-## 27. Autor
+# 29. Autor
 
 **Nivaldo Rodrigues**
 
 Mini-Projeto Avaliativo — Análise de Dados
 
-**Turma:** Analise_de_Dados_T1
+**Turma:** Analise_de_Dados_T5
 
 **Ano:** 2026

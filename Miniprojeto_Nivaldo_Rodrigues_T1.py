@@ -12,7 +12,7 @@ print("SPRINT 1 - IMPORTAÇÃO DOS DADOS")
 print("=" * 60)
 
 # Carregamento da base
-df = pd.read_csv("Base Varejo.csv", sep=";" )
+df = pd.read_csv("Base Varejo.csv", sep=";", encoding="utf-8")
 
 print("\nBase carregada com sucesso!")
 
@@ -207,3 +207,157 @@ vendas_mensais = (
     .sort_index()
 )
 print(vendas_mensais)
+
+#  CRIAÇÃO DA PASTA DE GRÁFICOS
+import os
+os.makedirs("graficos", exist_ok=True)
+
+# GRÁFICO 1 - REGISTROS AO LONGO DO TEMPO
+registros_data = (
+    df.groupby("DATA")
+      .size()
+      .reset_index(name="Quantidade")
+)
+
+plt.figure(figsize=(12, 6))
+plt.plot(
+    registros_data["DATA"],
+    registros_data["Quantidade"]
+)
+
+plt.title("Quantidade de Registros ao Longo do Tempo")
+plt.xlabel("Data")
+plt.ylabel("Quantidade de Registros")
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.savefig(
+    "graficos/01_registros_ao_longo_do_tempo.png",
+    dpi=300
+)
+plt.show()
+
+
+# GRAFICO 2 - REGISTROS POR CATEGORIA
+categoria = (
+    df["PR_CAT"]
+    .value_counts()
+    .sort_values(ascending=True)
+)
+
+plt.figure(figsize=(10, 6))
+categoria.plot(kind="barh")
+plt.title("Quantidade de Registros por Categoria de Produto")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Categoria")
+plt.tight_layout()
+plt.savefig(
+    "graficos/02_registros_por_categoria.png",
+    dpi=300
+)
+
+plt.show()
+
+# GRÁFICO 3 - TOP 10 PRODUTOS
+top_produtos = (
+    df["PR_NOME"]
+    .value_counts()
+    .head(10)
+    .sort_values(ascending=True)
+)
+plt.figure(figsize=(10, 6))
+top_produtos.plot(kind="barh")
+plt.title("Top 10 Produtos com Maior Número de Registros")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Produto")
+plt.tight_layout()
+plt.savefig(
+    "graficos/03_top_10_produtos.png",
+    dpi=300
+)
+plt.show()
+
+# GRÁFICO 4 - DISTRIBUIÇÃO POR GÊNERO
+genero = df["CL_GENERO"].value_counts()
+plt.figure(figsize=(7, 7))
+plt.pie(
+    genero.values,
+    labels=genero.index,
+    autopct="%1.1f%%",
+    startangle=90
+)
+
+plt.title("Distribuição dos Registros por Gênero")
+plt.tight_layout()
+plt.savefig(
+    "graficos/04_distribuicao_genero.png",
+    dpi=300
+)
+plt.show()
+
+# GRÁFICO 5 - DISTRIBUIÇÃO POR SEGMENTO
+segmento = df["CL_SEG"].value_counts()
+
+plt.figure(figsize=(8, 5))
+
+segmento.plot(kind="bar")
+
+plt.title("Quantidade de Registros por Segmento de Cliente")
+plt.xlabel("Segmento")
+plt.ylabel("Quantidade de Registros")
+
+plt.xticks(rotation=0)
+
+plt.tight_layout()
+
+plt.savefig(
+    "graficos/05_registros_por_segmento.png",
+    dpi=300
+)
+
+plt.show()
+
+# GRÁFICO 6 - REGISTROS POR EMPRESA/LOJA
+empresa = (
+    df["CO_ID"]
+    .value_counts()
+    .sort_values(ascending=False)
+)
+plt.figure(figsize=(10, 6))
+empresa.plot(kind="bar")
+
+plt.title("Quantidade de Registros por Empresa/Loja")
+plt.xlabel("Empresa/Loja (CO_ID)")
+plt.ylabel("Quantidade de Registros")
+plt.tight_layout()
+plt.savefig(
+    "graficos/06_registros_por_empresa.png",
+    dpi=300
+)
+plt.show()
+
+# GRÁFICO 7 - TOP 10 CLIENTES
+top_clientes = (
+    df["CL_ID"]
+    .value_counts()
+    .head(10)
+    .sort_values(ascending=True)
+)
+plt.figure(figsize=(10, 6))
+top_clientes.plot(kind="barh")
+plt.title("Top 10 Clientes por Número de Registros")
+plt.xlabel("Quantidade de Registros")
+plt.ylabel("Cliente")
+plt.tight_layout()
+plt.savefig(
+    "graficos/07_top_10_clientes.png",
+    dpi=300
+)
+plt.show()
+
+# FINALIZAÇÃO
+print("\n============================================")
+print("ANÁLISE CONCLUÍDA!")
+print("============================================")
+print("Os gráficos foram salvos na pasta 'graficos'.")
+print("Foram gerados 7 gráficos.")
